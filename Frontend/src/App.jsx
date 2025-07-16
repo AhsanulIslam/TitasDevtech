@@ -9,6 +9,7 @@ import Services from './components/frontend/Services';
 import Project from './components/frontend/Project';
 import Contact from './components/frontend/Contact';
 import Blogs from './components/frontend/Blogs';
+import Team from './components/frontend/Team';
 import './assets/CSS/style.scss';
 
 
@@ -24,6 +25,7 @@ function App() {
                   <Route path='/projects' element={<Project/>} />
                   <Route path='/contact' element={<Contact/>} />
                   <Route path='/blogs' element={<Blogs/>} />
+                  <Route path='/team' element={<Team/>} />
         </Routes>
       </BrowserRouter>
     </>
