@@ -11,6 +11,7 @@ import Contact from './components/frontend/Contact';
 import Blogs from './components/frontend/Blogs';
 import './assets/CSS/style.scss';
 
+
 function App() {
 
   return (

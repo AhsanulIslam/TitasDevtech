@@ -33,6 +33,7 @@ import project3 from '../../assets/img/project3.jpeg';
 import project4 from '../../assets/img/project4.jpeg';
 
 
+
 const clients = [
   { name: 'Acme Laboratories Ltd.', logo: client1 },
   { name: 'AKIJ Group', logo: client2 },
@@ -111,12 +112,10 @@ const Home = () => {
               <p className="back">
                 We are a team of highly skilled and dedicated professionals, driven by a passion for excellence in the construction and engineering industry.
               </p>
-             
                          <div className="button-group">
                                     <a href="/contact" className="btn btn-primary">Contact Now</a>
                                     <a href="/projects" className="btn btn-secondary">View Projects</a>
                         </div>
-            
             </div>
           </div>
         </section>
@@ -372,6 +371,7 @@ const Home = () => {
         <span>Our Major Projects</span>
         <hr style={{ borderColor: 'black' }} />
         <h2>Our commitment to timely delivery, innovation, and sustainability drives us to exceed expectations with every build.</h2>
+        <br />
       </div>
     </div>
 
@@ -451,8 +451,10 @@ const Home = () => {
     </div>
     <br />
   </div>
-</section>
 
+
+{/* // Client */}
+</section>
            <section className="section6 py-5">
                 <div className="container text-center">
                     <div className="section-header mb-5">
