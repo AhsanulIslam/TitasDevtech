@@ -33,19 +33,50 @@ h4 {
 
 
 header {
-    nav{
-        background-color: #ffffff;
-        .nav-link {
-            font-size: 2 em;
-            color: #000000;
-            font-weight: 700;
-            margin-left: 10px;
-            text-transform: uppercase;
-            // background-color: rgb(75, 74, 74);
-            
-            }
+  .main-navbar {
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: background-color 0.4s ease, padding 0.4s ease;
+
+  &:hover {
+    background-color: white !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &.bg-white {
+    background-color: white !important;
+  }
+   img{
+        &:hover {
+        transform: scale(1.1);
         }
+      }
+
+  .nav-menu {
+    display: flex;
+    width: 100%;
+
+    .nav-link {
+      flex: 1;                      // Equal width for all links
+      text-align: center;            // Center text inside each button
+      font-size: 1.3em;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 10px 0;
+      color: #000000;
+      border-radius: 5px;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        // background-color: #4f81ec;
+        color: rgb(255, 0, 0);
+        transform: scale(1.5);
+      }
+     
     }
+  }
+}
+}
 
 .back {
     font-size: 1.5em;
@@ -84,27 +115,96 @@ header {
 }
 
 
-.section1{
-    .hero{
-        // background-image: url('../img/back.jpg');
-        background: Linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0,0,0)), url('../img/back.jpg');
-        background-size: cover;
-        min-height: 1100px;
+.section1 {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
 
-        color: rgb(255, 255, 255);
+  .bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out; // smooth fade transition
+    z-index: 1;
+  }
 
-        .wel{
-            color: #000000;
-            font-size: 5em   ;
-            font-weight: 500;
-        }
-        .devtech{
-            color: #ff0000;
-         
-        }
-    }
+  .bg-slide.active {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    color: rgb(0, 0, 0);
+  }
+
+  .wel {
+    color: #000000;
+    font-size: 5em;
+    font-weight: 500;
+  }
+
+  .devtech {
+    color: #ff0000;
+  }
+  
 }
 
+.hero-content .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;   // consistent space between buttons
+  margin-top: 20px;
+}
+
+.hero-content .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+  transform-origin: center;
+  z-index: 5;
+}
+
+.hero-content .btn:hover {
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  background-color: #363636;
+  color: white;
+
+  &:hover {
+    background-color: #ff0000;
+  }
+}
+
+.btn-secondary {
+  background-color: #363636;
+  color: white;
+
+  &:hover {
+    background-color: darken(#ff0000, 10%);
+  }
+}
 
 .section2{
     img{
@@ -125,13 +225,79 @@ header {
         text-transform: uppercase;
     }
 }
+// Read More Button -- Read less 
+.read-toggle-btn {
+    color: #ffffff;
+  background-color: #050505;
+  padding: 15px 35px;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: transform 0.4s ease, background-color 0.4s ease;
+  text-transform: uppercase;
+
+  &:hover {
+    color: darken(#ffffff, 10%);
+    background-color: darken(#fa0000, 10%);
+    scale: 1.009;
+  }
+}
+
+// Section 3 - Services
 .section3 {
+  padding: 60px 0;
+  
+  .section-header {
+    span {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 2.5rem;
+      color: #222;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #555;
+      max-width: 700px;
+      margin: 20px auto 0;
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #777;
+      max-width: 700px;
+      margin: 15px auto 0;
+    }
+  }
+
   .item {
     position: relative;
     overflow: hidden;
-    border-radius: 40px;
+    border-radius: 25px;
     background-color: #222;
     color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+      .service-image img {
+        transform: scale(1.08);
+      }
+
+      .service-body {
+        background: rgba(0, 0, 0, 0.7);
+
+        .service-content {
+          opacity: 1;
+          max-height: 500px;
+        }
+      }
+    }
 
     .service-image {
       position: relative;
@@ -139,11 +305,11 @@ header {
 
       img {
         width: 100%;
-        aspect-ratio: 1 / 1.2;
+        aspect-ratio: 4 / 3;
         object-fit: cover;
-        transition: transform 0.4s ease;
+        transition: transform 0.5s ease;
         display: block;
-        border-radius: 40px;
+        border-radius: 25px;
       }
     }
 
@@ -153,15 +319,16 @@ header {
       left: 0;
       right: 0;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.6); // Optional dark overlay
-      z-index: 2; // Bring above image
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 2;
       transition: background 0.3s ease;
 
       .service-title {
         h3 {
-          font-size: 1.4em;
-          color: white;
-          margin-bottom: 0;
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #fff;
+          margin-bottom: 5px;
         }
       }
 
@@ -170,42 +337,252 @@ header {
         max-height: 0;
         overflow: hidden;
         transition: opacity 0.4s ease, max-height 0.4s ease;
-        
+
         p {
-          margin-top: 10px;
-          font-size: 1em;
+          font-size: 0.95rem;
+          color: #ddd;
+          line-height: 1.4;
         }
 
         .btn {
           margin-top: 10px;
+          font-weight: 500;
+          font-size: 0.9rem;
+          padding: 8px 18px;
+          border-radius: 20px;
+          background-color: #007bff;
+          color: #fff;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #0056b3;
+            color: #fff;
+          }
         }
-      }
-    }
-
-    &:hover {
-      .service-image img {
-        transform: scale(1.05);
-      }
-
-      .service-body .service-content {
-        opacity: 1;
-        max-height: 300px;
       }
     }
   }
 }
 
-.read-toggle-btn {
-  background-color: transparent;
-  color: $primary-color;
-  font-size: 1em;
-  padding: 0;
+// Section 4 - Features -- 
+
+.section4 {
+    background-color: #ffffff; // Light background for contrast
+    
+    .section-header {
+        span {
+        font-weight: bold;
+        font-size: 3rem;
+        color: #333;
+        letter-spacing: 1px;
+        }
+        h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #555;
+        margin-top: 15px;
+        }
+        p{
+             font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+    }
+    
+    .card {
+        background-color: #ffffff; // White background for cards
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    
+        &:hover {
+        transform: translateY(-10px);
+        }
+    
+        .card-icon {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    
+        img {
+            width: 60px; // Adjust size as needed
+            height: auto;
+            object-fit: contain;
+        }
+        }
+    
+        .card-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: #222;
+                margin-bottom: 10px;
+                min-height: 60px;
+        }
+    
+        .card-text {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+    }
+    
+}
+
+//section 5---------------------------------------------------------------------------
+.section5 .section-header span {
+  font-weight: bold;
+  font-size: 3rem;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.section5 .section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #555;
+  margin-top: 15px;
+}
+
+.section5 hr {
+  width: 100em;
+  height: 3px;
+  background-color: #000000;
+  margin: 10px auto;
   border: none;
-  cursor: pointer;
-  text-decoration: underline;
+}
+
+/* Project Cards */
+.section5 .item {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section5 .item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.section5 .service-image img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.section5 .item:hover .service-image img {
+  transform: scale(1.05);
+}
+
+.section5 .service-body {
+  padding: 20px;
+}
+
+.section5 .service-title h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+  min-height: 60px;
+}
+
+.section5 .service-content p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Read More Button */
+.section5 .btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.section5 .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* View All Projects Button */
+.section5 .view-all-btn {
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.section5 .view-all-btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+//------------------------------------------------
+
+.section6 {
+  background-color: #555555;  // Optional dark background for contrast
+
+  .section-header {
+    span {
+      font-size: 3em;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-size: 1.5em;
+      color: rgb(253, 253, 253);
+      text-transform: uppercase;
+    }
+  }
+
+  .client-logo {
+    background-color:transparent;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    
+
+    img {
+      max-height: 100px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    &:hover {
+      transform: scale(1.09);
+    }
+  }
+}
+
+
+.view-all-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.view-all-btn {
+  background-color: #050505;
+  padding: 15px 35px;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: transform 0.4s ease, background-color 0.4s ease;
+  text-transform: uppercase;
 
   &:hover {
-    color: darken($primary-color, 10%);
+    transform: scale(1.2);
+    background-color: darken(#fa0000, 10%);
   }
 }
 
@@ -255,6 +632,17 @@ ul{
         margin-bottom: 10px;
     }
 }
+
+.card-icon img {
+  width: 60px;   // Or any size you prefer
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;   // Center the icon horizontally
+}
+
+
+
 
 .quick{
         text-align: left;
