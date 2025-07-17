@@ -79,52 +79,62 @@ const ongoingProjects = [
   {
     title: 'Narayanganj silo – CIL',
     description: 'Ongoing construction of silo facility ensuring quality storage infrastructure.',
-    images: [projectImg2, projectImg1, projectImg3, projectImg4, projectImg5, projectImg6, projectImg7]
+    images: [projectImg2, projectImg1, projectImg3, projectImg4, projectImg5, projectImg6, projectImg7],
+    type: 'industrial'
   },
   {
     title: 'ACME API Project',
     description: 'State-of-the-art pharmaceutical infrastructure under development.',
-    images: [projectImg9, projectImg8, projectImg10, projectImg11, projectImg12, projectImg13]
+    images: [projectImg9, projectImg8, projectImg10, projectImg11, projectImg12, projectImg13],
+    type: 'commercial'
   },
   {
     title: 'Comilla University Project (Male Hall-02)-CIL',
     description: 'Ongoing construction of silo facility ensuring quality storage infrastructure.',
-    images: [projectImg14, projectImg15, projectImg16, projectImg17, projectImg18, projectImg19, projectImg20]
+    images: [projectImg14, projectImg15, projectImg16, projectImg17, projectImg18, projectImg19, projectImg20],
+    type: 'residential'
   },
   {
     title: 'Akij Feed Mill Project',
     description: 'State-of-the-art pharmaceutical infrastructure under development.',
-    images: [projectImg21, projectImg22, projectImg23, projectImg24, projectImg25, projectImg26]
+    images: [projectImg21, projectImg22, projectImg23, projectImg24, projectImg25, projectImg26],
+    type: 'residential'
   },
   {
     title: 'NGIL Family Quarter Project',
     description: 'Ongoing construction of silo facility ensuring quality storage infrastructure.',
-    images: [projectImg27, projectImg28, projectImg29]
+    images: [projectImg27, projectImg28, projectImg29],
+    type: 'residential'
   },
   {
     title: 'NGIL Road & Drain Project',
     description: 'State-of-the-art pharmaceutical infrastructure under development.',
-    images: [projectImg30, projectImg31, projectImg32]
+    images: [projectImg30, projectImg31, projectImg32],
+    type: 'residential'
   },
   {
     title: 'NQGIL Circulating Pump',
     description: 'State-of-the-art pharmaceutical infrastructure under development.',
-    images: [NasirT1, NasirT2, NasirT3, NasirT4, NasirT5, NasirT6, NasirT7, NasirT8, NasirT9, NasirT10]
+    images: [NasirT1, NasirT2, NasirT3, NasirT4, NasirT5, NasirT6, NasirT7, NasirT8, NasirT9, NasirT10],
+    type: 'residential'
   },
   {
     title: 'NFIL Production Building Project',
     description: 'Ongoing construction of silo facility ensuring quality storage infrastructure.',
-    images: [NFoot1, NFoot2, NFoot3, NFoot4, NFoot5, NFoot6]
+    images: [NFoot1, NFoot2, NFoot3, NFoot4, NFoot5, NFoot6],
+    type: 'residential'
   },
   {
     title: 'Kiam Kushtia Project',
     description: 'State-of-the-art pharmaceutical infrastructure under development.',
-    images: [kiam1]
+    images: [kiam1],
+    type: 'residential'
   },
   {
     title: 'Sterling Project',
     description: 'State-of-the-art pharmaceutical infrastructure under development.',
-    images: [sterlink1, sterlink2, sterlink3, sterlink4, sterlink5]
+    images: [sterlink1, sterlink2, sterlink3, sterlink4, sterlink5],
+    type: 'commercial'
   },
 ];
 
@@ -132,37 +142,44 @@ const majorProjects = [
   {
     title: 'Turkish Embassy, Baridhara, Dhaka',
     description: 'Prestigious embassy complex construction delivering excellence.',
-    images: [Turkish1, Turkish2, Turkish3]
+    images: [Turkish1, Turkish2, Turkish3],
+    type: 'commercial'
   },
   {
     title: 'Bijoy Rakeen City, Mirpur, Dhaka',
     description: 'Large-scale residential project ensuring modern urban living.',
-    images: [Raken1, Raken2, Raken3, Raken4, Raken5, Raken6]
+    images: [Raken1, Raken2, Raken3, Raken4, Raken5, Raken6],
+    type: 'residential'
   },
   {
     title: 'Nasir Jute Industries Ltd.',
     description: 'Prestigious embassy complex construction delivering excellence.',
-    images: [NasirJ1, NasirJ2, NasirJ3, NasirJ4, NasirJ5, NasirJ6, NasirJ7, NasirJ8]
+    images: [NasirJ1, NasirJ2, NasirJ3, NasirJ4, NasirJ5, NasirJ6, NasirJ7, NasirJ8],
+    type: 'residential'
   },
   {
     title: 'Narayanganj silo – Road & Drain',
     description: 'Large-scale residential project ensuring modern urban living.',
-    images: [projectImg2, projectImg1, projectImg3, projectImg4, projectImg5, projectImg6, projectImg7]
+    images: [projectImg2, projectImg1, projectImg3, projectImg4, projectImg5, projectImg6, projectImg7],
+    type: 'residential'
   },
   {
     title: 'Comilla University Project (Male Hall-02)',
     description: 'Prestigious embassy complex construction delivering excellence.',
-    images: [projectImg14, projectImg15, projectImg16, projectImg17, projectImg18, projectImg19, projectImg20]
+    images: [projectImg14, projectImg15, projectImg16, projectImg17, projectImg18, projectImg19, projectImg20],
+    type: 'residential'
   },
   {
     title: 'Road work for Nasir Quality Glass Ind. Ltd.',
     description: 'Large-scale residential project ensuring modern urban living.',
-    images: [projectImg30, projectImg31, projectImg32]
+    images: [projectImg30, projectImg31, projectImg32],
+    type: 'residential'
   },
   {
     title: 'FG Warehouse – AKIj Feed Mills ',
     description: 'Prestigious embassy complex construction delivering excellence.',
-    images: [projectImg21, projectImg22, projectImg23, projectImg24, projectImg25, projectImg26]
+    images: [projectImg21, projectImg22, projectImg23, projectImg24, projectImg25, projectImg26],
+    type: 'residential'
   },
 ];
 
@@ -175,8 +192,9 @@ const workOrderDocuments = [
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedPDF, setSelectedPDF] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [projectTypeFilter, setProjectTypeFilter] = useState('all');
 
-  // Add animation classes on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -192,42 +210,87 @@ const Project = () => {
     return () => elements.forEach(el => observer.unobserve(el));
   }, []);
 
-  const renderProjectSection = (title, projects) => (
-    <section className="project-section bm-5">
-      <br />
-      <br />
-      <div className="container">
-        <h2>{title}</h2>
-        <div className="row">
-          {projects.map((project, index) => (
-            <div key={index} className="col-md-6 col-lg-4 project-card mb-4">
-              <div
-                className="card h-100"
-                onClick={() => setSelectedProject(project)}
-                style={{ cursor: 'pointer' }}
-              >
-                <img
-                  src={project.images[0]}
-                  alt={project.title}
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5>{project.title}</h5>
-                  <p>{project.description.substring(0, 100)}...</p>
+  const filterProjects = (projects) => {
+    return projects.filter(project =>
+      (projectTypeFilter === 'all' || project.type === projectTypeFilter) &&
+      (project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+       project.description.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+  };
+
+  const renderProjectSection = (title, projects) => {
+    const filtered = filterProjects(projects);
+
+    return (
+      <section className="project-section bm-5">
+        <div className="container"> 
+          <div style={{ textAlign: 'center' }}>   <h2 >{title}</h2></div>
+        
+          {filtered.length === 0 ? (
+           <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center', fontSize: '1.5rem', }}>
+           No projects found.</p>
+          ) : (
+            <div className="row">
+              {filtered.map((project, index) => (
+                <div key={index} className="col-md-6 col-lg-4 project-card mb-4">
+                  <div
+                    className="card h-100"
+                    onClick={() => setSelectedProject(project)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <img
+                      src={project.images[0]}
+                      alt={project.title}
+                      className="card-img-top"
+                    />
+                    <div className="card-body">
+                      <h5>{project.title}</h5>
+                      <p>{project.description.substring(0, 100)}...</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  };
 
   return (
     <>
       <Header />
       <main>
+        <br />
+        <br />
+
+        {/* Search & Filter Controls above Ongoing Projects */}
+
+        <div className="container mb-2 d-flex justify-content-end my-5">
+          <div className="d-flex gap-2" style={{ minWidth: '300px' }}>
+            <input
+              type="text"
+              className="project-search form-control form-control-sm"
+              placeholder="Search projects..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <select
+              className="form-select form-select-sm"
+              value={projectTypeFilter}
+              onChange={(e) => setProjectTypeFilter(e.target.value)}
+              style={{ maxWidth: '150px' }}
+            >
+              <option value="all">All Types</option>
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+              <option value="industrial">Industrial</option>
+            </select>
+          </div>
+        </div>
+
         {renderProjectSection('Ongoing Projects', ongoingProjects)}
+        <hr />
         {renderProjectSection('Major Projects', majorProjects)}
 
         <section className="workorder-section">
@@ -259,13 +322,8 @@ const Project = () => {
           </div>
         </section>
 
-        {/* PDF Preview Modal */}
         {selectedPDF && (
-          <div
-            className="modal show d-block bg-dark bg-opacity-75"
-            tabIndex="-1"
-            onClick={() => setSelectedPDF(null)}
-          >
+          <div className="modal show d-block bg-dark bg-opacity-75" tabIndex="-1" onClick={() => setSelectedPDF(null)}>
             <div
               className="modal-dialog modal-xl modal-dialog-centered"
               onClick={(e) => e.stopPropagation()}
@@ -274,11 +332,7 @@ const Project = () => {
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title">PDF Preview</h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    onClick={() => setSelectedPDF(null)}
-                  ></button>
+                  <button type="button" className="btn-close" onClick={() => setSelectedPDF(null)}></button>
                 </div>
                 <div className="modal-body">
                   <PDFViewer fileUrl={selectedPDF} />
@@ -288,36 +342,20 @@ const Project = () => {
           </div>
         )}
 
-        {/* Project Images Modal */}
         {selectedProject && (
-          <div
-            className="modal show d-block bg-dark bg-opacity-75 project-modal"
-            tabIndex="-1"
-            onClick={() => setSelectedProject(null)}
-          >
-            <div
-              className="modal-dialog modal-xl modal-dialog-centered"
-              onClick={(e) => e.stopPropagation()}
-            >
+          <div className="modal show d-block bg-dark bg-opacity-75 project-modal" tabIndex="-1" onClick={() => setSelectedProject(null)}>
+            <div className="modal-dialog modal-xl modal-dialog-centered" onClick={(e) => e.stopPropagation()}>
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title">{selectedProject.title}</h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    onClick={() => setSelectedProject(null)}
-                  ></button>
+                  <button type="button" className="btn-close" onClick={() => setSelectedProject(null)}></button>
                 </div>
                 <div className="modal-body">
                   <p>{selectedProject.description}</p>
                   <div className="row">
                     {selectedProject.images.map((img, idx) => (
                       <div key={idx} className="col-md-4 mb-3">
-                        <img
-                          src={img}
-                          alt={`Project ${idx}`}
-                          className="w-100 rounded shadow"
-                        />
+                        <img src={img} alt={`Project ${idx}`} className="w-100 rounded shadow" />
                       </div>
                     ))}
                   </div>
