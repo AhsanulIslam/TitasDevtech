@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
-import aboutImg from '../../assets/img/cil1.jpg'; // Replace with your image
+import aboutImg from '../../assets/img/titasdevtech.jpg'; // Replace with your image
 import team1 from '../../assets/img/team/mamun.jpg';   // Replace with team photos
 import team2 from '../../assets/img/team/iqbal.jpg';
 import profile from '../../../public/TitasDevTech_Profile.pdf'; // Replace with your profile PDF
@@ -122,9 +122,7 @@ In the years ahead,<b>we aspire to not only lead the industry but also inspire i
             <div className="text-center my-5 profile">
 
                  <h2 className="mb-4">Download Our Company Profile</h2>
-                        <a
-                                  href={profile}
-                                  download
+                        <a href={profile} download
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="btn btn-primary px-4 py-2"

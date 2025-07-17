@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
-
+import team1 from '../../assets/img/team/mamun.jpg';   // Replace with team photos
+import team2 from '../../assets/img/team/iqbal.jpg';
+import team3 from '../../assets/img/team/tuhin.jpg';
+import team4 from '../../assets/img/team/sultan.jpg';
+import team5 from '../../assets/img/team/rakibul.jpg';
+import team6 from '../../assets/img/team/major.jpg';
+import team7 from '../../assets/img/team/monir.jpg';
+import team8 from '../../assets/img/team/arshad.jpg';
+import team9 from '../../assets/img/team/imon.jpg';
+import team10 from '../../assets/img/team/rana.jpg';
+import team11 from '../../assets/img/team/tarajul.jpg';
+import team12 from '../../assets/img/team/bashar.jpg';
 
 const teamMembers = [
   {
@@ -9,15 +20,15 @@ const teamMembers = [
     members: [
       {
         name: 'Md Al Mamun',
-        qualification: 'BSc in Civil Engineering, BUET',
-        image: '/team/md-al-mamun.jpg',
-        bio: 'Over 15 years of experience in leading engineering projects with excellence and integrity.'
+        qualification: 'BSc in Civil Engineering',
+        image: team1,
+        bio: 'Strategic thinker focused on client relationships and business development.'
       },
       {
-        name: '[Second Director]',
-        qualification: 'MBA, University of Dhaka',
-        image: '/team/director-2.jpg',
-        bio: 'Strategic thinker focused on client relationships and business development.'
+        name: 'Md Iqbal Hossain',
+        qualification: 'BSc in Civil Engineering',
+        image: team2,
+        bio: 'Over 15 years of experience in leading engineering projects with excellence and integrity.'
       }
     ]
   },
@@ -25,9 +36,9 @@ const teamMembers = [
     role: 'General Manager (GM)',
     members: [
       {
-        name: '[GM Name]',
-        qualification: 'MSc in Structural Engineering, RUET',
-        image: '/team/gm.jpg',
+        name: 'Md. Shahidul Islam (Tuhin)',
+        qualification: 'BSc in Civil Engineering',
+        image: team3,
         bio: 'Experienced in large-scale infrastructure development and project supervision.'
       }
     ]
@@ -36,27 +47,76 @@ const teamMembers = [
     role: 'Assistant General Manager (AGM)',
     members: [
       {
-        name: '[AGM One]',
+        name: 'K. M. Sultan Ahmmed',
         qualification: 'BSc in Civil Engineering',
-        image: '/team/agm1.jpg',
+        image: team4,
         bio: 'Skilled in team coordination and technical leadership.'
       },
       {
-        name: '[AGM Two]',
-        qualification: 'MBA in Project Management',
-        image: '/team/agm2.jpg',
+        name: 'Md. Rakibul Islam',
+        qualification: 'BSc in Civil Engineering',
+        image: team5,
         bio: 'Bridges technical delivery with client needs and expectations.'
       }
     ]
   },
   {
     role: 'Accounts & Admin',
-    members: Array.from({ length: 5 }, (_, i) => ({
-      name: `Account/Admin ${i + 1}`,
-      qualification: 'BBA/MBA in Accounting or Management',
-      image: `/team/account${i + 1}.jpg`,
-      bio: 'Handles financial reporting and administrative operations.'
-    }))
+    members: [
+      {
+        name: 'Md. Moniruzzaman',
+        qualification: 'MBA in Accounting and Finance',
+        image: team7,
+        bio: 'Handles financial reporting and administrative operations.'
+      },
+      {
+        name: 'Md. Arshad Bin Ali',
+        qualification: 'MBA in Accounting and Finance',
+        image: team8,
+        bio: 'Handles financial reporting and administrative operations.'
+      },
+
+    ]
+  },
+    {
+    role: 'Director (Operations)',
+    members: [
+      {
+        name: 'Major Md Asif Reza (Retd)',
+        qualification: 'Bsc, MBA',
+        image: team6,
+        bio: 'Responsible for innovative solutions and project research.'
+      }
+
+    ]
+  },
+{
+    role: 'Research & Development',
+    members: [
+       {
+        name: 'A. N. M. Ahsanul Islam Imon',
+        qualification: 'BSc in CSE',
+        image: team9, 
+        bio: 'Responsible for innovative solutions and project research.'
+      }
+    ]
+  },
+      {
+    role: 'Purchase & Inventory',
+    members: [
+      {
+        name: 'Eusuf Rana',
+        qualification: 'Bsc In EEE',
+        image: team10,
+        bio: 'Handles financial reporting and Purchase.'
+      },
+       {
+        name: 'Md. Tarajul Islam',
+        qualification: 'Masters in Bangla',
+        image: team11,
+        bio: 'Handles financial reporting and Purchase.'
+      }
+    ]
   },
   {
     role: 'Senior Project Manager',
@@ -159,7 +219,7 @@ const Team = () => {
                   <div key={i} className="col-sm-10 col-md-6 col-lg-3 text-center mb-4 d-flex align-items-stretch">
                     <div
                       className="card shadow border-0 p-3 w-100 cursor-pointer"
-                      onClick={() => setSelectedMember(member)}
+                      onClick={() => setSelectedMember({ ...member, role: group.role })}  
                       style={{ cursor: 'pointer' }}
                     >
                       <img
@@ -178,7 +238,6 @@ const Team = () => {
             </div>
           ))}
         </div>
-
         {selectedMember && (
           <div className="modal show d-block" tabIndex="-1" onClick={() => setSelectedMember(null)}>
             <div className="modal-dialog modal-dialog-centered" onClick={e => e.stopPropagation()}>
