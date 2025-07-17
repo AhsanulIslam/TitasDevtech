@@ -1018,21 +1018,24 @@ ul{
       align-items: center;
 
       &:hover {
-        background-color: #f0f0f0;
+        background-color: #a8a8a8;
       }
 
-      .btn-primary {
+      .btn-primary, .btn-secondary {
         font-size: 0.85rem;
         padding: 0.3rem 0.8rem;
-        border-radius: 20px;
+        border-radius: 15px;
         transition: background 0.3s ease;
 
         &:hover {
-          background-color: #0056b3;
+          background-color: #0f491b;
+          color: #ffffff;
+          transform: scale(1.05);
         }
       }
     }
   }
+  
 }
 
 .project-modal {
