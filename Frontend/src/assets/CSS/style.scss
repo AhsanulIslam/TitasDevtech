@@ -731,6 +731,18 @@ ul{
   }
 }
 
+.profile{
+  .btn-primary {
+  background-color: #0056b3;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #003f82;
+}
+}
+
 .team-section img {
   width: 150px;
   height: 150px;
