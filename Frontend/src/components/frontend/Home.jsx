@@ -160,7 +160,7 @@ const Home = () => {
                    <br />
                 </div>
                 <div className='row'>
-                    <div className="col-md-3 col-lg-3">
+                    <div className="col-md-3 col-lg-3 mb-3">
                             <div className="item">
                                 <div className="service-image">
                                 <img src={service1} alt="Service Image" className="w-100" />
@@ -180,7 +180,7 @@ const Home = () => {
                             </div>
                     </div>
 
-                            <div className="col-md-3 col-lg-3">
+                            <div className="col-md-3 col-lg-3 mb-3">
                             <div className="item">
                                 <div className="service-image">
                                 <img src={service2} alt="Service Image" className="w-100" />
@@ -199,7 +199,7 @@ const Home = () => {
                             </div>
                             </div>
 
-                         <div className="col-md-3 col-lg-3">
+                         <div className="col-md-3 col-lg-3 mb-3">
                             <div className="item">
                                 <div className="service-image">
                                 <img src={service4} alt="Service Image" className="w-100" />

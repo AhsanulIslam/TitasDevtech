@@ -239,7 +239,7 @@ const Project = () => {
                   <span>{doc.title}</span>
                   <div>
                     <button 
-                      className="btn btn-secondary me-2" 
+                      className="btn btn-secondary me-2 mb-1" 
                       onClick={() => setSelectedPDF(doc.url)}
                     >
                       Preview PDF
