@@ -1,94 +1,80 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
 
+import cover1 from '../../assets/img/back.jpg';
+import cover2 from '../../assets/img/back2.jpg';
+import cover3 from '../../assets/img/back3.jpg';
+
+import buildingIcon from '../../assets/img/icon.png'; // Example icons
+import roadIcon from '../../assets/img/icon1.png';
+import powerIcon from '../../assets/img/icon2.png';
+
+const services = [
+  {
+    title: 'Residential & Commercial Buildings',
+    desc: 'Design and construction of modern, energy-efficient buildings.',
+    icon: buildingIcon,
+  },
+  {
+    title: 'Roads & Highways',
+    desc: 'Planning and execution of durable transportation infrastructure.',
+    icon: roadIcon,
+  },
+  {
+    title: 'Power Plants & Hydraulic Structures',
+    desc: 'Specialized services in high-capacity energy and water systems.',
+    icon: powerIcon,
+  },
+];
+
 const Services = () => {
+  const covers = [cover1, cover2, cover3];
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent(prev => (prev + 1) % covers.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-     <>
+    <>
       <Header />
+
       <main>
-          <div>Services</div> 
+        {/* Top Rotating Image Banner */}
+        <div className="cover-slider">
+          {covers.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              className={`cover-image ${index === current ? 'active' : ''}`}
+              alt={`Cover ${index + 1}`}
+            />
+          ))}
+        </div>
 
-           {/* <div className='row'>
-                    <div className="col-md-3 col-lg-3">
-                            <div className="item">
-                                <div className="service-image">
-                                <img src={service7} alt="Service Image" className="w-100" />
-                                </div>
-                                <div className="service-body">
-                                <div className="service-title">
-                                    <h3>Power Plant</h3>
-                                </div>
-                                <div className="service-content">
-                                    <p>
-                                    We design and construct power plants and hydraulic structures, contributing to energy sustainability and efficient water management systems.
-                                    </p>
-                                    <a href="#" className="btn btn-primary">Read More</a>
-                                </div>
-                                </div>
-                            </div>
-                    </div>
+        {/* Services List */}
+        <section className="services-section">
+          <h2 className="services-title">Our Services</h2>
+          <div className="services-grid">
+            {services.map((srv, i) => (
+              <div className="service-card" key={i}>
+                <img src={srv.icon} alt={srv.title} className="service-icon" />
+                <h3>{srv.title}</h3>
+                <p>{srv.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
 
-                            <div className="col-md-3 col-lg-3">
-                            <div className="item">
-                                <div className="service-image">
-                                <img src={service8} alt="Service Image" className="w-100" />
-                                </div>
-                                <div className="service-body">
-                                <div className="service-title">
-                                    <h3>Hydraulic Structure</h3>
-                                </div>
-                                <div className="service-content">
-                                    <p>
-                                    We design and construct power plants and hydraulic structures, contributing to energy sustainability and efficient water management systems.
-                                    </p>
-                                    <a href="#" className="btn btn-primary">Read More</a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-
-                         <div className="col-md-3 col-lg-3">
-                            <div className="item">
-                                <div className="service-image">
-                                <img src={service3} alt="Service Image" className="w-100" />
-                                </div>
-                                <div className="service-body">
-                                <div className="service-title">
-                                    <h3>Industrial Infrastructure</h3>
-                                </div>
-                                <div className="service-content">
-                                    <p>
-                                         We deliver robust industrial infrastructure solutions tailored for factories, warehouses, and energy facilities, ensuring high durability, safety, and operational efficiency.
-                                   </p>
-                                    <a href="#" className="btn btn-primary">Read More</a>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                         <div className="col-md-3 col-lg-3">
-                            <div className="item">
-                                <div className="service-image">
-                                <img src={service5} alt="Service Image" className="w-100" />
-                                </div>
-                                <div className="service-body">
-                                <div className="service-title">
-                                    <h3>Roadside Footpath & Drain</h3>
-                                </div>
-                                <div className="service-content">
-                                    <p>
-                                       We design and construct roadside footpaths and drainage systems that ensure safe pedestrian access and effective stormwater management for urban and rural infrastructure.</p>
-                                    <a href="#" className="btn btn-primary">Read More</a>
-                                </div>
-                                </div>
-                            </div>
-                         </div> */} 
-      </main> 
-      <Footer/>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;
