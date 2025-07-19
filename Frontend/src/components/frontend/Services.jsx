@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
 
-import cover1 from '../../assets/img/back.jpg';
-import cover2 from '../../assets/img/back2.jpg';
-import cover3 from '../../assets/img/back3.jpg';
+import cover1 from '../../assets/img/about7.jpg';
+import cover2 from '../../assets/img/about5.jpg';
+import cover3 from '../../assets/img/about10.jpg';
 
 import buildingIcon from '../../assets/img/icon.png'; // Example icons
 import roadIcon from '../../assets/img/icon1.png';
@@ -35,7 +35,7 @@ const Services = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent(prev => (prev + 1) % covers.length);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);

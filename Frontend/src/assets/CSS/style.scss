@@ -1122,7 +1122,7 @@ ul{
 
   .cover-slider {
   position: relative;
-  height: 60vh;
+  height: 45vh;
   overflow: hidden;
 
   .cover-image {
@@ -1135,7 +1135,7 @@ ul{
   }
 
   .cover-image.active {
-    opacity: 1;
+    opacity: 2;
     z-index: 1;
   }
 }
@@ -1164,7 +1164,7 @@ ul{
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 
     &:hover {
       transform: translateY(-6px);
