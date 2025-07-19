@@ -1,60 +1,133 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
 import aboutImg from '../../assets/img/titasdevtech.jpg'; // Replace with your image
 import team1 from '../../assets/img/team/mamun.jpg';   // Replace with team photos
 import team2 from '../../assets/img/team/iqbal.jpg';
 import profile from '../../../public/TitasDevTech_Profile.pdf'; // Replace with your profile PDF
+import cover1 from '../../assets/img/about8.jpg';
+import cover2 from '../../assets/img/about9.jpg';
+import cover3 from '../../assets/img/about11.jpg';
+
 
 const About = () => {
+  
+
+  const covers = [cover1, cover2, cover3];
+  const [current, setCurrent] = useState(0);
+
+
+   useEffect(() => {
+     const interval = setInterval(() => {
+       setCurrent(prev => (prev + 1) % covers.length);
+     }, 3000);
+ 
+     return () => clearInterval(interval);
+   }, []);
+
   return (
     <>
       <Header />
       <main>
+      {/* image add */}
+         <div className="cover-slider">
+          {covers.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              className={`cover-image ${index === current ? 'active' : ''}`}
+              alt={`Cover ${index + 1}`}
+            />
+          ))}
+        </div>
 
 <br /><br />
+
         {/* Company Overview */}
-        <section className="about-section py-5">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-6 mb-4 mb-md-0">
-                <img
-                  src={aboutImg}
-                  alt="About TitasDevTech"
-                  className="img-fluid rounded-4 shadow"
-                />
-              </div>
-              <div className="col-md-6">
-                {/* <span className="text-uppercase text-danger fw-bold mb-2 d-block">About Us</span> */}
-                <h2 className="mb-4 text-dark" style={{ fontSize: '5rem' }}>
-                  Building the Future of Bangladesh with Innovation, Integrity, and Excellence.
-                </h2>
-                <p className="text-secondary">
-                  <strong>TitasDevTech Engineering</strong>,  was established in the year 2012 and has since evolved into a leading construction and consultancy company in Bangladesh. 
-                          From the early stages of conceptualization to detailed planning, design, construction, and engineering, we provide comprehensive services tailored to meet 
-                          the needs of a diverse range of projects across various industries and sectors.
-                          
-                          Over the years, TitasDevTech has proudly built an impressive portfolio of professional achievements, completing a wide variety of construction assignments 
-                          throughout Bangladesh. Our projects span from government infrastructure developments to private and public sector constructions, showcasing our versatility and 
-                          dedication to excellence. Whether it is a large-scale industrial facility, a modern commercial building, or a critical public infrastructure project, TitasDevTech 
-                          consistently delivers reliable solutions that meet and exceed client expectations.
 
-                          Our core expertise lies in construction, design, supervision, and project management, where we serve as trusted partners to clients across government, private enterprises,
-                          and public organizations. By offering a multidisciplinary approach, we ensure every project benefits from integrated solutions that combine efficiency, innovation, and long-term value. 
-                          Our goal is to be recognized as a reputable and versatile construction and consultancy firm with the capacity to successfully execute projects across multiple sectors of construction and engineering.
+       <section className="about-section py-5">
+      <div className="container">
+        <div className="row align-items-stretch">
+          {/* Left Side Image */}
+          <div className="col-md-6 mb-4 mb-md-0">
+            <img
+              src={aboutImg}
+              alt="About TitasDevTech"
+              className="img-fluid rounded-4 shadow w-100 h-100 object-fit-cover"
+              style={{ objectFit: 'cover', height: '100%' }}
+            />
+          </div>
 
-                          At TitasDevTech Engineering, we believe that our greatest asset is our team. We are fully committed to the continuous professional development of our engineers and technical staff. 
-                          Understanding the ever-changing nature of technology and modern construction techniques, we encourage our personnel to stay up to date with advancements in their respective fields. 
-                          This dedication to continuous learning ensures that we consistently apply the latest industry practices and technologies in all our projects.
-                          With professionalism, integrity, and a focus on client satisfaction, TitasDevTech Engineering continues to build the future of Bangladesh.
-                </p>
-                <p className="text-secondary">
-                  Our team specializes in infrastructure development, project management, structural design, and turnkey execution of industrial and public projects across the country.
-                </p>
-              </div>
+          {/* Right Side Text */}
+          <div className="col-md-6 d-flex flex-column justify-content-center">
+            <div className="about-text p-3">
+              <h2
+                className="mb-4 text-dark"
+                style={{ fontSize: '2.8rem', lineHeight: '1.3' }}
+              >
+                Building the Future of Bangladesh with Innovation, Integrity, and Excellence.
+              </h2>
+
+              <p className="text-secondary" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                <strong>TitasDevTech Engineering</strong> was established in the year 2012 and has
+                since evolved into a leading construction and consultancy company in Bangladesh.
+                From the early stages of conceptualization to detailed planning, design,
+                construction, and engineering, we provide comprehensive services tailored to meet
+                the needs of a diverse range of projects across various industries and sectors.
+              </p>
+
+              <p className="text-secondary" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                Over the years, TitasDevTech has proudly built an impressive portfolio of
+                professional achievements, completing a wide variety of construction assignments
+                throughout Bangladesh. Our projects span from government infrastructure developments
+                to private and public sector constructions, showcasing our versatility and
+                dedication to excellence. Whether it is a large-scale industrial facility, a modern
+                commercial building, or a critical public infrastructure project, TitasDevTech
+                consistently delivers reliable solutions that meet and exceed client expectations.
+              </p>
+
+              <p className="text-secondary" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                Our core expertise lies in construction, design, supervision, and project
+                management, where we serve as trusted partners to clients across government, private
+                enterprises, and public organizations. By offering a multidisciplinary approach, we
+                ensure every project benefits from integrated solutions that combine efficiency,
+                innovation, and long-term value.
+              </p>
+
+              <p className="text-secondary" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                Our goal is to be recognized as a reputable and versatile construction and
+                consultancy firm with the capacity to successfully execute projects across multiple
+                sectors of construction and engineering.
+              </p>
+
+              <p className="text-secondary" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                At TitasDevTech Engineering, we believe that our greatest asset is our team. We are
+                fully committed to the continuous professional development of our engineers and
+                technical staff. Understanding the ever-changing nature of technology and modern
+                construction techniques, we encourage our personnel to stay up to date with
+                advancements in their respective fields. This dedication to continuous learning
+                ensures that we consistently apply the latest industry practices and technologies in
+                all our projects.
+              </p>
+
+              <p className="text-secondary" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                With professionalism, integrity, and a focus on client satisfaction, TitasDevTech
+                Engineering continues to build the future of Bangladesh.
+              </p>
+
+              <p className="text-secondary" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                Our team specializes in infrastructure development, project management, structural
+                design, and turnkey execution of industrial and public projects across the country.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
+
+
+       
 
         {/* Mission Vision Values */}
         <section className="mission-section py-5 bg-light">
