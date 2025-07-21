@@ -22,7 +22,27 @@ const services = [
     icon: roadIcon,
   },
   {
+    title: 'Auditorium & Public Buildings',
+    desc: 'Specialized services in high-capacity energy and water systems.',
+    icon: powerIcon,
+  },
+   {
+    title: 'Infrastructure Development',
+    desc: 'Specialized services in high-capacity energy and water systems.',
+    icon: powerIcon,
+  },
+   {
     title: 'Power Plants & Hydraulic Structures',
+    desc: 'Specialized services in high-capacity energy and water systems.',
+    icon: powerIcon,
+  },
+  {
+    title: 'Warehouse & Industrial Buildings',
+    desc: 'Specialized services in high-capacity energy and water systems.',
+    icon: powerIcon,
+  },
+    {
+    title: 'Bridge & Pavements',
     desc: 'Specialized services in high-capacity energy and water systems.',
     icon: powerIcon,
   },

@@ -6,9 +6,9 @@ import aboutImg from '../../assets/img/titasdevtech.jpg'; // Replace with your i
 import team1 from '../../assets/img/team/mamun.jpg';   // Replace with team photos
 import team2 from '../../assets/img/team/iqbal.jpg';
 import profile from '../../../public/TitasDevTech_Profile.pdf'; // Replace with your profile PDF
-import cover1 from '../../assets/img/about8.jpg';
-import cover2 from '../../assets/img/about9.jpg';
-import cover3 from '../../assets/img/about11.jpg';
+import cover1 from '../../assets/img/about12.jpg';
+import cover2 from '../../assets/img/about31.jpg';
+import cover3 from '../../assets/img/about30.jpg';
 
 
 const About = () => {
