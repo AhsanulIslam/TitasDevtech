@@ -1187,3 +1187,45 @@ ul{
     }
   }
 }
+
+
+
+
+// Contact 
+
+.contact-section {
+  h2 {
+    font-weight: 600;
+  }
+
+  .form-control {
+    border-radius: 0;
+    border: 1px solid #ccc;
+    &:focus {
+      border-color: #007bff;
+      box-shadow: none;
+    }
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+  }
+}

@@ -11,6 +11,7 @@ import Contact from './components/frontend/Contact';
 import Blogs from './components/frontend/Blogs';
 import Team from './components/frontend/Team';
 import './assets/CSS/style.scss';
+import './assets/CSS/contact.scss';
 
 
 function App() {
